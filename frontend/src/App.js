@@ -1,39 +1,37 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import CreateBlog from './pages/CreateBlog';
-// import CreateUser from './pages/CreateUser';
 import EditBlog from './pages/EditBlog';
 import Navbar from './components/Navbar';
-import CreateUser from "./pages/CreateUser"
-
+import CreateUser from './pages/CreateUser';
+import Auth0ProviderWithHistory from './auth0Provider';
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-      <Navbar  />
+    <BrowserRouter>
+      <Auth0ProviderWithHistory>
+        <Navbar />
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={<Homepage />}
           />
-         <Route
-          path='/add-blog'
-          element={<CreateBlog />}
+          <Route
+            path="/add-blog"
+            element={<CreateBlog />}
           />
-           <Route
-          path='/:id'
-          element={<EditBlog />}
+          <Route
+            path="/:id"
+            element={<EditBlog />}
           />
-           <Route
-          path='/add-user'
-          element={<CreateUser />}
+          <Route
+            path="/add-user"
+            element={<CreateUser />}
           />
         </Routes>
-      </BrowserRouter>
-     
-    </div>
+      </Auth0ProviderWithHistory>
+    </BrowserRouter>
   );
-  }
+}
 
 export default App;
