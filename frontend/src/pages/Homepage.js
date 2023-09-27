@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { readBlogs } from "../api/blog api/readBlogs";
 import Card from '../components/Card'
 import { deleteBlog } from "../api/blog api/deleteBlog";
+import { blogWithReplies } from "./BlogswithReplies";
+import { readBlogwithReply } from "../api.blog api/readBlogwithReply";
+
 const Homepage = () => {
-    const [blogs, setBlogs] = useState([ ])
+    const [blogWithReplies, setBlogWithReplies] = useState([ ])
 
 
     const deleteHandler = async (blog) => {
@@ -14,22 +17,22 @@ const Homepage = () => {
         setBlogs(updated)
     }
     useEffect(() => {
-        const fetchBlogs = async () => {
-            let data = await readBlogs()
-            setBlogs(data.blogs)
+        const fetchblogWithReplies = async () => {
+            let data = await readblogWithReplies()
+            setBlogswithReply(data.blogs)
             console.log(data.message)
             console.log(data)
         }
-        fetchBlogs()
+        fetchblogWithReplies()
     }, [])
  
-    if (!blogs) return <h1>loading...</h1>
+    if (!blogWithReplies) return <h1>loading...</h1>
     return (
         
         <div className="items">
             <>
                 {
-                    blogs ? blogs.map((blog) => <Card key={blogs._id} deleteHandler={deleteHandler} blog={blog}/>)
+                    blogWithReplies ? blogWithReplies.map((blogWithReplies) => <Card key={blogsWithReplies._id} deleteHandler={deleteHandler} blog={blogWithReplies}/>)
                         : <p>loading...</p>
                 }
             </>

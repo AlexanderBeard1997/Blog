@@ -63,6 +63,7 @@ const EditBlog = () => {
             )}
 
             <button className="button" onClick={submitHandler}>Submit</button>
+            
         </div>
     )
 }
