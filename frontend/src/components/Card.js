@@ -13,7 +13,7 @@ const Card = ({ blog, deleteHandler }) => {
       <h3>{blog.title}</h3>
       <p>{blog.text}</p>
       <img src={blog.image} alt={blog.title} width="25%" />
-      <footer>{newDate}</footer>
+      <footer>{newDate} {blog.username}</footer>
 
       {isUserBlog && ( 
         <>
