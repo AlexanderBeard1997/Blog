@@ -2,6 +2,8 @@ import { useState } from "react"
 import { addBlog } from "../api/blog api/addBlog"
 import { useAuth0 } from '@auth0/auth0-react'
 
+
+
 const CreateBlog = () => {
     const {user} = useAuth0()
     console.log(user)
@@ -24,14 +26,13 @@ const CreateBlog = () => {
       ...userInput,
       [name]: value,
     })
-        /* let response = await addBlog(userInput)
-        console.log(response)  */
     }
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
         const response = await addBlog(userInput);
       console.log(response);
+
     }
 
     return (
