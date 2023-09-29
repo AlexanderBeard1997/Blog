@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { addBlog } from "../api/blog api/addBlog"
 import { useAuth0 } from '@auth0/auth0-react'
-
+import { useNavigate } from 'react-router-dom';
 
 
 const CreateBlog = () => {
     const {user} = useAuth0()
+    const navigate = useNavigate()
     console.log(user)
     const userEmail = user.email
     const userName = user.nickname
@@ -32,7 +33,7 @@ const CreateBlog = () => {
         e.preventDefault()
         const response = await addBlog(userInput);
       console.log(response);
-
+      navigate('/')
     }
 
     return (
