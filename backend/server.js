@@ -3,6 +3,7 @@ require("dotenv").config()
 const express = require('express')
 const itemRoutes = require('./routes/items')
 const itemRoutes2 = require(`./routes/items2`)
+const itemRoutes3 = require(`./routes/items3`)
 const mongoose = require('mongoose')
 const cors = require('cors')
 
@@ -13,6 +14,7 @@ app.use(express.json()) // parse incomming data
 // eg http://localhost:4000/todos/items
 app.use('/blogs', itemRoutes)
 app.use('/users', itemRoutes2)
+app.use('/comments', itemRoutes3)
 
 
 mongoose.connect(process.env.MONGODB_URL)
