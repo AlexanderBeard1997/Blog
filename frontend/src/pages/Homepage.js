@@ -26,7 +26,7 @@ const Homepage = () => {
     if (!blogs) return <h1>loading...</h1>
     return (
         <div id="container">
-        <h1>QuirkyQuill.com</h1>
+        <h1>TheOmniBlogiverse</h1>
         <div id="card-container">
         <div className="items">
             <>
